@@ -1,0 +1,37 @@
+﻿{
+  YoutubeTranscript: [Function: YoutubeTranscript] {
+    fetchTranscript: [Function (anonymous)],
+    generateRequest: [Function (anonymous)],
+    generateNonce: [Function (anonymous)],
+    retrieveVideoId: [Function (anonymous)]
+  },
+  YoutubeTranscriptError: [Function: YoutubeTranscriptError]
+}
+node : TypeError: 
+Cannot read properties 
+of undefined (reading 
+'length')
+At line:1 char:1
++ node test-yt.js *>&1 
+| Out-File -Encoding 
+utf8 output-err.txt
++ ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (TypeError: Ca   
+ nn...ading 'length    
+'):String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+    at 
+C:\Users\Kushagra Singh
+\OneDrive\Desktop\Ai_st
+udy_assistant\backend\t
+est-yt.js:5:41
+    at process.processT
+icksAndRejections (node
+:internal/process/task_
+queues:105:5)

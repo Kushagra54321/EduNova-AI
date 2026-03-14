@@ -1,0 +1,9 @@
+﻿{
+  YoutubeTranscript: [Function: YoutubeTranscript] {
+    fetchTranscript: [Function (anonymous)],
+    generateRequest: [Function (anonymous)],
+    generateNonce: [Function (anonymous)],
+    retrieveVideoId: [Function (anonymous)]
+  },
+  YoutubeTranscriptError: [Function: YoutubeTranscriptError]
+}
