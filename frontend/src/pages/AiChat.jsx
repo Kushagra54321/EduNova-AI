@@ -31,7 +31,7 @@ const AiChat = () => {
       const config = { headers: { Authorization: `Bearer ${token}` } };
 
       // Call actual backend
-      const res = await axios.post('http://localhost:5000/api/ai/chat', {
+      const res = await axios.post('https://edunova-ai-1.onrender.com/api/ai/chat', {
         prompt: userMessage
       }, config);
 

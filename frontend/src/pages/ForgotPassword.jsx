@@ -15,7 +15,7 @@ const ForgotPassword = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/reset-password', formData);
+      const response = await axios.post('https://edunova-ai-1.onrender.com/api/auth/reset-password', formData);
       setStatus({ type: 'success', message: response.data.message || 'Password reset successfully.' });
       setFormData({ email: '', newPassword: '' }); // clear form
     } catch (err) {

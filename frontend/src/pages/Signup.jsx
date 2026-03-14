@@ -13,7 +13,7 @@ const Signup = () => {
     e.preventDefault();
     setError(null); // Clear previous errors
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const response = await axios.post('https://edunova-ai-1.onrender.com/api/auth/register', formData);
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify({ _id: response.data._id, name: response.data.name, email: response.data.email }));
       navigate('/dashboard'); // Redirect to dashboard on successful signup

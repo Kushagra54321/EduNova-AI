@@ -57,7 +57,7 @@ const NotesGen = () => {
       
       const endpointConfig = inputType === 'pdf' ? config : { headers: { Authorization: `Bearer ${token}` } };
       
-      const { data } = await axios.post('http://localhost:5000/api/ai/smart-study', payload, endpointConfig);
+      const { data } = await axios.post('https://edunova-ai-1.onrender.com/api/ai/smart-study', payload, endpointConfig);
       setSmartData(data.result);
     } catch (err) {
       console.error(err);

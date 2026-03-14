@@ -19,7 +19,7 @@ const QuizGen = () => {
       try {
         const token = localStorage.getItem('token');
         const config = { headers: { Authorization: `Bearer ${token}` } };
-        const { data } = await axios.get('http://localhost:5000/api/ai/planner', config);
+        const { data } = await axios.get('https://edunova-ai-1.onrender.com/api/ai/planner', config);
         setSavedPlans(data.result);
       } catch (err) {
         console.error("Failed to fetch plans for quiz topics");
@@ -42,7 +42,7 @@ const QuizGen = () => {
       const token = localStorage.getItem('token');
       const config = { headers: { Authorization: `Bearer ${token}` } };
       
-      const { data } = await axios.post('http://localhost:5000/api/ai/quiz/generate', { topic }, config);
+      const { data } = await axios.post('https://edunova-ai-1.onrender.com/api/ai/quiz/generate', { topic }, config);
       setQuiz(data.result);
     } catch (err) {
       console.error(err);
@@ -76,7 +76,7 @@ const QuizGen = () => {
       const token = localStorage.getItem('token');
       const config = { headers: { Authorization: `Bearer ${token}` } };
       
-      await axios.post('http://localhost:5000/api/ai/quiz/submit', { 
+      await axios.post('https://edunova-ai-1.onrender.com/api/ai/quiz/submit', { 
         topic, 
         score: calculatedScore, 
         totalQuestions: quiz.length 

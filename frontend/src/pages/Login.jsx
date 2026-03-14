@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     setError('');
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const response = await axios.post('https://edunova-ai-1.onrender.com/api/auth/login', formData);
       localStorage.setItem('user', JSON.stringify({ _id: response.data._id, name: response.data.name, email: response.data.email }));
       localStorage.setItem('token', response.data.token);
       navigate('/dashboard'); 
@@ -25,7 +25,7 @@ const Login = () => {
   const handleGuestLogin = async () => {
     setError('');
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/guest-login');
+      const response = await axios.post('https://edunova-ai-1.onrender.com/api/auth/guest-login');
       localStorage.setItem('user', JSON.stringify({ _id: response.data._id, name: response.data.name, email: response.data.email, isGuest: true }));
       localStorage.setItem('token', response.data.token);
       navigate('/dashboard'); 

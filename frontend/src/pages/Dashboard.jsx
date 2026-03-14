@@ -16,7 +16,7 @@ const Dashboard = () => {
       try {
         const token = localStorage.getItem('token');
         const config = { headers: { Authorization: `Bearer ${token}` } };
-        const { data } = await axios.get('http://localhost:5000/api/ai/analytics', config);
+        const { data } = await axios.get('https://edunova-ai-1.onrender.com/api/ai/analytics', config);
         setAnalytics(data.result);
       } catch (err) {
         console.error("Failed to fetch analytics:", err);

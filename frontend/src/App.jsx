@@ -21,7 +21,7 @@ function App() {
       // If token is missing, attempt to auto-login immediately
       if (!token) {
         try {
-          const response = await axios.post('http://localhost:5000/api/auth/auto-login');
+          const response = await axios.post('https://edunova-ai-1.onrender.com/api/auth/auto-login');
           localStorage.setItem('user', JSON.stringify({ 
             _id: response.data._id, 
             name: response.data.name, 
@@ -44,10 +44,10 @@ function App() {
         const originalRequest = error.config;
         
         // If 401 and not already retrying, attempt auto-login
-        if (error.response?.status === 401 && !originalRequest._retry && originalRequest.url !== 'http://localhost:5000/api/auth/auto-login') {
+        if (error.response?.status === 401 && !originalRequest._retry && originalRequest.url !== 'https://edunova-ai-1.onrender.com/api/auth/auto-login') {
           originalRequest._retry = true;
           try {
-            const autoRes = await axios.post('http://localhost:5000/api/auth/auto-login');
+            const autoRes = await axios.post('https://edunova-ai-1.onrender.com/api/auth/auto-login');
             localStorage.setItem('user', JSON.stringify({ 
               _id: autoRes.data._id, 
               name: autoRes.data.name, 

@@ -16,7 +16,7 @@ const StudyPlanner = () => {
     try {
       const token = localStorage.getItem('token');
       const config = { headers: { Authorization: `Bearer ${token}` } };
-      const { data } = await axios.get('http://localhost:5000/api/ai/planner', config);
+      const { data } = await axios.get('https://edunova-ai-1.onrender.com/api/ai/planner', config);
       setSavedPlans(data.result);
       if(data.result.length > 0) {
         setCurrentPlan(data.result[0].plan);
@@ -44,7 +44,7 @@ const StudyPlanner = () => {
       const token = localStorage.getItem('token');
       const config = { headers: { Authorization: `Bearer ${token}` } };
       
-      const res = await axios.post('http://localhost:5000/api/ai/planner', { 
+      const res = await axios.post('https://edunova-ai-1.onrender.com/api/ai/planner', { 
         examDate, 
         topics 
       }, config);
