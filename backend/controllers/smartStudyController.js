@@ -62,7 +62,15 @@ exports.generateSmartStudy = async (req, res) => {
             sourceText = transcript.map(t => t.text).join(" ");
         } catch (ytErr) {
             console.error(ytErr);
-            return res.status(400).json({ error: ytErr.message || "Could not fetch transcript for this video. It may be disabled." });
+            
+            let userMessage = "Could not fetch transcript for this video. It may be disabled.";
+            if (ytErr.message && ytErr.message.includes("disabled")) {
+                userMessage = "Oops! This specific video has Subtitles/Captions disabled by the creator. Our AI needs subtitles to generate study guides. Please try another video that has CC/Subtitles enabled!";
+            } else if (ytErr.message && ytErr.message.includes("No transcripts")) {
+                userMessage = "No English subtitles found for this video. Please try a video with English Captions.";
+            }
+
+            return res.status(400).json({ error: userMessage });
         }
     } 
     // 3. Fallback to basic text topic if neither file nor URL
