@@ -1,7 +1,13 @@
-const yt = require('youtube-transcript');
-console.log(yt);
-try {
-  yt.YoutubeTranscript.fetchTranscript('dQw4w9WgXcQ')
-    .then(t => console.log('success', t.length))
-    .catch(e => console.error(e));
-} catch(e) { console.error('SYNC ERR', e) }
+const { YoutubeTranscript } = require('./utils/youtubeTranscript');
+
+async function test() {
+  try {
+    const transcript = await YoutubeTranscript.fetchTranscript('Xs6E-MAJbfE');
+    console.log('Success! Transcript length:', transcript.length);
+    console.log('Sample:', transcript.slice(0, 3));
+  } catch(e) { 
+    console.error('Fetch Failed:', e.message);
+  }
+}
+
+test();

@@ -62,7 +62,7 @@ exports.generateSmartStudy = async (req, res) => {
             sourceText = transcript.map(t => t.text).join(" ");
         } catch (ytErr) {
             console.error(ytErr);
-            return res.status(400).json({ error: "Could not fetch transcript for this video. It may be disabled." });
+            return res.status(400).json({ error: ytErr.message || "Could not fetch transcript for this video. It may be disabled." });
         }
     } 
     // 3. Fallback to basic text topic if neither file nor URL
