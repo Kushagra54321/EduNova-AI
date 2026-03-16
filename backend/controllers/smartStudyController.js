@@ -58,7 +58,8 @@ exports.generateSmartStudy = async (req, res) => {
         if (!videoId) return res.status(400).json({ error: "Invalid YouTube URL." });
         
         try {
-            const transcript = await YoutubeTranscript.fetchTranscript(videoId);
+            // Force fetch English transcripts if available, useful for videos from other regions
+            const transcript = await YoutubeTranscript.fetchTranscript(videoId, { lang: 'en' });
             sourceText = transcript.map(t => t.text).join(" ");
         } catch (ytErr) {
             console.error(ytErr);
