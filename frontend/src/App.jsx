@@ -12,6 +12,7 @@ import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ForgotPassword from './pages/ForgotPassword';
+import Profile from './pages/Profile';
 import PrivateRoute from './components/layout/PrivateRoute';
 
 function App() {
@@ -25,7 +26,9 @@ function App() {
           localStorage.setItem('user', JSON.stringify({ 
             _id: response.data._id, 
             name: response.data.name, 
-            email: response.data.email 
+            email: response.data.email,
+            gender: response.data.gender,
+            age: response.data.age
           }));
           localStorage.setItem('token', response.data.token);
           console.log('Initial auto-login successful');
@@ -51,7 +54,9 @@ function App() {
             localStorage.setItem('user', JSON.stringify({ 
               _id: autoRes.data._id, 
               name: autoRes.data.name, 
-              email: autoRes.data.email 
+              email: autoRes.data.email,
+              gender: autoRes.data.gender,
+              age: autoRes.data.age
             }));
             const newToken = autoRes.data.token;
             localStorage.setItem('token', newToken);
@@ -93,6 +98,7 @@ function App() {
             <Route path="/planner" element={<PrivateRoute><StudyPlanner /></PrivateRoute>} />
             <Route path="/quiz" element={<PrivateRoute><QuizGen /></PrivateRoute>} />
             <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+            <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
           </Routes>
         </main>
       </div>

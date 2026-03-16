@@ -6,7 +6,7 @@ const generateToken = require('../utils/generateToken');
 // @access  Public
 const registerUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, gender, age } = req.body;
 
     const userExists = await User.findOne({ email });
 
@@ -18,6 +18,8 @@ const registerUser = async (req, res) => {
       name,
       email,
       password,
+      gender: gender || 'Prefer not to say',
+      age: age || null,
     });
 
     if (user) {
@@ -25,6 +27,8 @@ const registerUser = async (req, res) => {
         _id: user._id,
         name: user.name,
         email: user.email,
+        gender: user.gender,
+        age: user.age,
         token: generateToken(user._id),
       });
     } else {
@@ -49,6 +53,8 @@ const authUser = async (req, res) => {
         _id: user._id,
         name: user.name,
         email: user.email,
+        gender: user.gender,
+        age: user.age,
         token: generateToken(user._id),
       });
     } else {

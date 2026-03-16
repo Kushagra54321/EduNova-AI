@@ -66,6 +66,40 @@ const Signup = () => {
               </div>
             </div>
 
+            {/* Gender Select */}
+            <div className="relative">
+              <label className="block text-sm font-medium text-gray-400 mb-1 ml-1 cursor-text">Gender</label>
+              <div className="relative flex items-center">
+                <select
+                  required
+                  onChange={(e) => setFormData({...formData, gender: e.target.value})}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-primary/50 transition-colors appearance-none"
+                  defaultValue=""
+                >
+                  <option value="" disabled className="text-gray-900">Select Gender</option>
+                  <option value="Male" className="text-gray-900">Male</option>
+                  <option value="Female" className="text-gray-900">Female</option>
+                  <option value="Other" className="text-gray-900">Other</option>
+                  <option value="Prefer not to say" className="text-gray-900">Prefer not to say</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Age Input */}
+            <div className="relative">
+              <label className="block text-sm font-medium text-gray-400 mb-1 ml-1 cursor-text">Age</label>
+              <div className="relative flex items-center">
+                <input
+                  type="number"
+                  min="10"
+                  max="120"
+                  placeholder="20"
+                  onChange={(e) => setFormData({...formData, age: e.target.value})}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-primary/50 transition-colors"
+                />
+              </div>
+            </div>
+
             {/* Password Input */}
             <div className="relative">
               <label className="block text-sm font-medium text-gray-400 mb-1 ml-1 cursor-text">Password</label>
